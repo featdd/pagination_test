@@ -1,0 +1,29 @@
+{
+  "name": "featdd/pagination-test",
+  "type": "typo3-cms-extension",
+  "description": "A test for pagination and routing with query parameters",
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "require": {
+    "typo3/cms-core": "~12.4",
+    "php": "~8.2",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-pdo": "*",
+    "georgringer/numbered-pagination": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Featdd\\PaginationTest\\": "Classes"
+    }
+  },
+  "replace": {
+    "typo3-ter/pagination-test": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "pagination_test"
+    }
+  }
+}

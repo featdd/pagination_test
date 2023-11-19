@@ -1,0 +1,10 @@
+plugin.tx_paginationtest {
+  view {
+    # cat=pagination_test/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:pagination_test/Resources/Private/Templates/
+    # cat=pagination_test/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:pagination_test/Resources/Private/Partials/
+    # cat=pagination_test/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:pagination_test/Resources/Private/Layouts/
+  }
+}

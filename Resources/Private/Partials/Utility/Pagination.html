@@ -1,0 +1,75 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <ul class="pagination">
+    <f:if condition="{pagination.previousPageNumber} && {pagination.previousPageNumber} >= {pagination.firstPageNumber}">
+      <f:then>
+        <li class="page-item">
+          <a class="page-link" href="{f:uri.action(action: action)}" title="First page">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{f:uri.action(action: action, additionalParams: '{f:if(condition: \'{pagination.previousPageNumber} > 1\', then: \'{page: pagination.previousPageNumber}\')}')}" title="Previous page">
+            <span aria-hidden="true">&lt;</span>
+          </a>
+        </li>
+      </f:then>
+      <f:else>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">
+            <span aria-hidden="true">&lt;</span>
+          </a>
+        </li>
+      </f:else>
+    </f:if>
+    <f:if condition="{pagination.hasLessPages}">
+      <li class="page-item disabled">
+        <a class="page-link" href="#">…</a>
+      </li>
+    </f:if>
+    <f:for each="{pagination.allPageNumbers}" as="page">
+      <li class="page-item {f:if(condition: '{page} == {paginator.currentPageNumber}', then: ' active')}">
+        <a class="page-link" href="{f:uri.action(action: action, additionalParams: '{f:if(condition: \'{page} > 1\', then: \'{page: page}\')}')}">{page}</a>
+      </li>
+    </f:for>
+    <f:if condition="{pagination.hasMorePages}">
+      <li class="page-item disabled">
+        <a class="page-link" href="#">…</a>
+      </li>
+    </f:if>
+    <f:if condition="{pagination.nextPageNumber} && {pagination.nextPageNumber} <= {pagination.lastPageNumber}">
+      <f:then>
+        <li class="page-item">
+          <a class="page-link" href="{f:uri.action(action: action, additionalParams: '{page: pagination.nextPageNumber}')}" title="Next page">
+            <span aria-hidden="true">&gt;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{f:uri.action(action: action, additionalParams: '{page: pagination.lastPageNumber}')}" title="Last page">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </f:then>
+      <f:else>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">
+            <span aria-hidden="true">&gt;</span>
+          </a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </f:else>
+    </f:if>
+  </ul>
+
+</html>

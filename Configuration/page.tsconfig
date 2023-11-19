@@ -1,0 +1,14 @@
+mod {
+  wizards.newContentElement.wizardItems.plugins {
+    elements {
+      paginatontest_pagination {
+        iconIdentifier = ext-pagination_test
+        title = Test Pagination
+        description = Plugin for testing paginations
+        tt_content_defValues {
+          CType = paginationtest_pagination
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <f:layout name="Default"/>
+
+  <f:section name="Main">
+
+    <ul>
+      <f:for each="{paginator.paginatedItems}" as="paginationItem">
+        <li>{paginationItem.title}</li>
+      </f:for>
+    </ul>
+
+    <f:render partial="Utility/Pagination" arguments="{paginator: paginator, pagination: pagination, action: 'list'}"/>
+
+  </f:section>
+
+</html>
